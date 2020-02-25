@@ -51,11 +51,26 @@ public class CustomLibSAM {
 		}
 		return min;
 	}
-	}
 
-	//static void arrayToArrayList()
+	static ArrayList<Integer> arrayToArrayList(int[] list)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for (int i : list)
+		{
+			result.add(i);
+		}
+		return result;
+	}
 	
-	//
+	static ArrayList<Double> arrayToArrayList(double[] list)
+	{
+		ArrayList<Double> result = new ArrayList<Double>();
+		for (double d : list)
+		{
+			result.add(d);
+		}
+		return result;
+	}
 	
 	static ArrayList<String> inputFile(String fileName) {
 		ArrayList<String> lines = new ArrayList<String>();
