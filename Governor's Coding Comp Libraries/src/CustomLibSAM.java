@@ -226,8 +226,6 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		double [] list = {-8,12,45,1030,-15};
-		
-		System.out.println(maxListDouble(arrayToArrayList(list)));
+
 	}
 }
