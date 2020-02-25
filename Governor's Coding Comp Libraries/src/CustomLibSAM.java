@@ -59,6 +59,7 @@ public class CustomLibSAM {
 		}
 	}
 	
+	
 	static void takeIntegerInput(ArrayList<Integer> inputs)
 	{
 		Scanner scan1 = new Scanner(System.in);
@@ -79,6 +80,7 @@ public class CustomLibSAM {
 			takeIntegerInput(inputs);
 		}
 	}
+	
 	
 	static void takeWordInput(ArrayList<String> inputs)
 	{
@@ -132,6 +134,7 @@ public class CustomLibSAM {
         } 
     } 
 	
+	
     static int lcm(int a, int b) 
     { 
         return (a*b)/gcd(a, b); 
@@ -147,52 +150,35 @@ public class CustomLibSAM {
     
 	static int gcd(int a, int b) 
 	    { 
-	        // Everything divides 0  
 	        if (a == 0) 
 	          return b; 
 	        if (b == 0) 
 	          return a; 
-	       
-	        // base case 
 	        if (a == b) 
 	            return a; 
-	       
-	        // a is greater 
 	        if (a > b) 
 	            return gcd(a-b, b); 
 	        return gcd(a, b-a); 
-		} 
+		}
+	
 		
 	static long maxPrimeFactor(long n) 
 		{ 
-			// Initialize the maximum prime 
-			// factor variable with the 
-			// lowest one 
+
 			long maxPrime = -1; 
 	  
-			// Print the number of 2s 
-			// that divide n 
 			while (n % 2 == 0) { 
 				maxPrime = 2; 
 	  
-				// equivalent to n /= 2 
 				n >>= 1; 
-			} 
-	  
-			// n must be odd at this point, 
-			// thus skip the even numbers 
-			// and iterate only for odd 
-			// integers 
+			}  
 			for (int i = 3; i <= Math.sqrt(n); i += 2) { 
 				while (n % i == 0) { 
 					maxPrime = i; 
 					n = n / i; 
 				} 
 			} 
-	  
-			// This condition is to handle 
-			// the case when n is a prime 
-			// number greater than 2 
+
 			if (n > 2) 
 				maxPrime = n; 
 	  
@@ -227,6 +213,7 @@ public class CustomLibSAM {
           
         return res; 
     } 
+	
 
 	static boolean isPrime(int n) 
     { 
@@ -244,6 +231,7 @@ public class CustomLibSAM {
       
         return true; 
     } 
+	
 
 	static void printArray(int arr[]) 
     { 
@@ -253,6 +241,7 @@ public class CustomLibSAM {
         System.out.println(); 
     } 
 	
+	
 	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
 	{
@@ -261,16 +250,12 @@ public class CustomLibSAM {
 		return formatter.format(d);
 	}
 	
+	
 	public static void main(String[] args)
 	{
 		ArrayList<Double> list = new ArrayList<Double>();
 		takeDoubleInput(list);
 		
-		System.out.println("gose");
+		System.out.println("goose");
 	}
-	
-	
-	
-	
-
 }
