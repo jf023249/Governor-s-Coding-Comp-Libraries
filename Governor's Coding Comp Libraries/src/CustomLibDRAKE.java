@@ -1,7 +1,6 @@
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class CustomLibDRAKE {
@@ -10,13 +9,8 @@ public class CustomLibDRAKE {
 	static int rand(int min, int max)
 	{
 		Random r = new Random();
-		
 		return r.nextInt(max+min)-min;
 	}
-	
-	
-	
-	
 	
 	static int[] bubbleSort(int[] array) 
     { 
@@ -33,10 +27,10 @@ public class CustomLibDRAKE {
         return arr;
     } 
 	
-	static boolean hasKey(ArrayList<HashMap> arr, Object key)
+	static boolean hasKey(ArrayList<HashMap<Object,Object>> arr, Object key)
 	{
 		boolean flag = false;
-		for(HashMap h: arr)
+		for(HashMap<Object,Object> h: arr)
 		{
 			if(h.containsKey(key))
 			{
@@ -170,10 +164,6 @@ public class CustomLibDRAKE {
 	
 	public static void main(String[] args)
 	{
-		Object o = new Double(2.2);
-		
-		
-		
 		
 	}
 	

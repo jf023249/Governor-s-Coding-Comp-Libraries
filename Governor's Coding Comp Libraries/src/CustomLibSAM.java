@@ -26,7 +26,9 @@ public class CustomLibSAM {
 	
 	static void outputFile(String fileName, ArrayList<String> lines) {
 		try {
-			FileWriter fWriter = new FileWriter(new File(fileName));
+			File f = new File(fileName);
+			System.out.println("it worked");
+			FileWriter fWriter = new FileWriter(f);
 			for (String s : lines) {
 				fWriter.write(s+"\n");
 			}
@@ -249,9 +251,8 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		ArrayList<Double> list = new ArrayList<Double>();
-		takeDoubleInput(list);
-		
-		System.out.println("gose");
+		ArrayList<String> lines = inputFile("inputfile.txt");
+		System.out.println(lines);
+		outputFile("goose.txt", lines);
 	}
 }
