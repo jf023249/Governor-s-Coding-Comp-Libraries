@@ -1,6 +1,11 @@
 import java.text.NumberFormat;
 
 public class CustomLib {
+	
+    static int lcm(int a, int b) 
+    { 
+        return (a*b)/gcd(a, b); 
+    } 
 
 	static int gcd(int a, int b) 
 	    { 
@@ -109,6 +114,7 @@ public class CustomLib {
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
+
 	
 	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
