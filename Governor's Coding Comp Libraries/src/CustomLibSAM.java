@@ -258,7 +258,7 @@ public class CustomLibSAM {
 		ArrayList<Double> list = new ArrayList<Double>();
 		takeDoubleInput(list);
 		
-		System.out.println(list);
+		System.out.println("gose");
 	}
 	
 	
