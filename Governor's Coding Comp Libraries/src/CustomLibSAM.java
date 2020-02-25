@@ -7,7 +7,56 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CustomLibSAM {
+	
+	static int maxListInt(ArrayList<Integer> list)
+	{
+		int max = Integer.MIN_VALUE;
+		for (int i : list)
+		{
+			if (i>max)
+				max = i;
+		}
+		return max;
+	}
+	
+	static int minListInt(ArrayList<Integer> list)
+	{
+		int min = Integer.MAX_VALUE;
+		for (int i : list)
+		{
+			if (i<min)
+				min = i;
+		}
+		return min;
+	}
+	
+	static double maxListDouble(ArrayList<Double> list)
+	{
+		double max = Double.MIN_VALUE;
+		for (double i : list)
+		{
+			if (i>max)
+				max = i;
+		}
+		return max;
+	}
+	
+	static double minListDouble(ArrayList<Double> list)
+	{
+		Double min = Double.MAX_VALUE;
+		for (double d : list)
+		{
+			if (i<min)
+				min = i;
+		}
+		return min;
+	}
+	}
 
+	//static void arrayToArrayList()
+	
+	//
+	
 	static ArrayList<String> inputFile(String fileName) {
 		ArrayList<String> lines = new ArrayList<String>();
 		try {
@@ -59,7 +108,6 @@ public class CustomLibSAM {
 		}
 	}
 	
-	
 	static void takeIntegerInput(ArrayList<Integer> inputs)
 	{
 		Scanner scan1 = new Scanner(System.in);
@@ -80,7 +128,6 @@ public class CustomLibSAM {
 			takeIntegerInput(inputs);
 		}
 	}
-	
 	
 	static void takeWordInput(ArrayList<String> inputs)
 	{
@@ -134,7 +181,6 @@ public class CustomLibSAM {
         } 
     } 
 	
-	
     static int lcm(int a, int b) 
     { 
         return (a*b)/gcd(a, b); 
@@ -161,7 +207,6 @@ public class CustomLibSAM {
 	        return gcd(a, b-a); 
 		}
 	
-		
 	static long maxPrimeFactor(long n) 
 		{ 
 
@@ -214,7 +259,6 @@ public class CustomLibSAM {
         return res; 
     } 
 	
-
 	static boolean isPrime(int n) 
     { 
         if (n <= 1) return false; 
@@ -228,7 +272,6 @@ public class CustomLibSAM {
         return true; 
     } 
 	
-
 	static void printArray(int arr[]) 
     { 
         int n = arr.length; 
@@ -237,15 +280,12 @@ public class CustomLibSAM {
         System.out.println(); 
     } 
 	
-	
-	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
 	{
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 		
 		return formatter.format(d);
 	}
-	
 	
 	public static void main(String[] args)
 	{
