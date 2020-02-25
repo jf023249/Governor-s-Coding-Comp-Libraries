@@ -1,3 +1,5 @@
+import java.text.NumberFormat;
+
 public class CustomLib {
 
 	static int gcd(int a, int b) 
@@ -18,7 +20,7 @@ public class CustomLib {
 	        return gcd(a, b-a); 
 		} 
 		
-	static long maxPrimeFactors(long n) 
+	static long maxPrimeFactor(long n) 
 		{ 
 			// Initialize the maximum prime 
 			// factor variable with the 
@@ -107,4 +109,24 @@ public class CustomLib {
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
+	
+	//NOTE! This method rounds to the nearest cent.
+	static String currencyFormat(double d)
+	{
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		
+		return formatter.format(d);
+	}
+	
+	public static void main(String[] args)
+	{
+		double d = 12.562;
+		
+		System.out.println(currencyFormat(d));
+	}
+	
+	
+	
+	
+
 }
