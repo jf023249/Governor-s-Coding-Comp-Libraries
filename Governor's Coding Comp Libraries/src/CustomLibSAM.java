@@ -1,34 +1,43 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CustomLibSAM {
-	
-	//NOTE! Must create an ArrayList of the correct type and then call this method.
-	
-	@SuppressWarnings("finally")
-	static ArrayList<String> inputFile(String fileName) throws FileNotFoundException {
-	    ArrayList<String> lines = new ArrayList<String>();
-	    //try {
-	      Scanner fScan = new Scanner(new File(fileName));
-	      while (fScan.hasNextLine()) {
-	        lines.add(fScan.nextLine());
-	      }
-	      fScan.close();
-	      return lines;
-	    //}
-	    /*
-	    catch (FileNotFoundException e) {
-	      System.out.println("File not found.");
-	    }
-	    finally {
-	    	return lines;
-	    }
-	    */
+
+	static ArrayList<String> inputFile(String fileName) {
+		ArrayList<String> lines = new ArrayList<String>();
+		try {
+			Scanner fScan = new Scanner(new File(fileName));
+			while (fScan.hasNextLine()) {
+				lines.add(fScan.nextLine());
+			}
+			fScan.close();
+			return lines;
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("File not found.");
+			return lines;
+		}
 	}
 	
+	static void outputFile(String fileName, ArrayList<String> lines) {
+		try {
+			FileWriter fWriter = new FileWriter(new File(fileName));
+			for (String s : lines) {
+				fWriter.write(s+"\n");
+			}
+			fWriter.close();
+		}
+		catch (IOException e) {
+			System.out.println("IO Exception.");
+		}
+	}
+	
+	//NOTE! Must create an ArrayList of the correct type and then call this method.
 	static void takeDoubleInput(ArrayList<Double> inputs)
 	{
 		Scanner scan1 = new Scanner(System.in);
@@ -243,7 +252,6 @@ public class CustomLibSAM {
             System.out.print(arr[i]+" "); 
         System.out.println(); 
     } 
-
 	
 	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
