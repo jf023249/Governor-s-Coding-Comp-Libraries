@@ -33,10 +33,10 @@ public class CustomLibSAM {
 	static double maxListDouble(ArrayList<Double> list)
 	{
 		double max = Double.MIN_VALUE;
-		for (double i : list)
+		for (double d : list)
 		{
-			if (i>max)
-				max = i;
+			if (d>max)
+				max = d;
 		}
 		return max;
 	}
@@ -46,8 +46,8 @@ public class CustomLibSAM {
 		Double min = Double.MAX_VALUE;
 		for (double d : list)
 		{
-			if (i<min)
-				min = i;
+			if (d<min)
+				min = d;
 		}
 		return min;
 	}
