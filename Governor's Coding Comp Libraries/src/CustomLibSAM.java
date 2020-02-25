@@ -1,6 +1,6 @@
 import java.text.NumberFormat;
 
-public class CustomLib {
+public class CustomLibSAM {
 	
     static int lcm(int a, int b) 
     { 
