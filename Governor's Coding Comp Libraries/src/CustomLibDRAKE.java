@@ -1,6 +1,40 @@
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class CustomLibDRAKE {
+	
+	static int[] bubbleSort(int[] array) 
+    { 
+		int[] arr = array;
+        int n = arr.length; 
+        for (int i = 0; i < n-1; i++) 
+            for (int j = 0; j < n-i-1; j++) 
+                if (arr[j] > arr[j+1]) 
+                { 
+                    // swap arr[j+1] and arr[i] 
+                    int temp = arr[j]; 
+                    arr[j] = arr[j+1]; 
+                    arr[j+1] = temp; 
+                } 
+        return arr;
+    } 
+	
+	static boolean hasKey(ArrayList<HashMap> arr, Object key)
+	{
+		boolean flag = false;
+		for(HashMap h: arr)
+		{
+			if(h.containsKey(key))
+			{
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
 	
     static int lcm(int a, int b) 
     { 
@@ -107,7 +141,7 @@ public class CustomLibDRAKE {
         return true; 
     } 
 
-	static void printArray(int arr[]) 
+	static void printArray(int[] arr) 
     { 
         int n = arr.length; 
         for (int i=0; i<n; ++i) 
@@ -115,7 +149,6 @@ public class CustomLibDRAKE {
         System.out.println(); 
     } 
 
-	
 	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
 	{
@@ -126,10 +159,11 @@ public class CustomLibDRAKE {
 	
 	public static void main(String[] args)
 	{
-		double d = 12.562;
+	
 		
-		System.out.println(currencyFormat(d));
 	}
+	
+
 	
 	
 	
