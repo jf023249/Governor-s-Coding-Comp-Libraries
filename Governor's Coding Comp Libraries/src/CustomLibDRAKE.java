@@ -1,4 +1,8 @@
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class CustomLibDRAKE {
 	
@@ -17,6 +21,20 @@ public class CustomLibDRAKE {
                 } 
         return arr;
     } 
+	
+	static boolean hasKey(ArrayList<HashMap> arr, Object key)
+	{
+		boolean flag = false;
+		for(HashMap h: arr)
+		{
+			if(h.containsKey(key))
+			{
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
 	
     static int lcm(int a, int b) 
     { 
@@ -141,15 +159,11 @@ public class CustomLibDRAKE {
 	
 	public static void main(String[] args)
 	{
-		int[] arr = {1,6,8,23,3,7,7,3};
-		
-		printArray(arr);
-		
-		printArray(bubbleSort(arr));
-		
-		
+	
 		
 	}
+	
+
 	
 	
 	
