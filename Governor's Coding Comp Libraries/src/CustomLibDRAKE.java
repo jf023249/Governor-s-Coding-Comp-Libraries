@@ -6,6 +6,18 @@ import java.util.Random;
 
 public class CustomLibDRAKE {
 	
+	
+	static int rand(int min, int max)
+	{
+		Random r = new Random();
+		
+		return r.nextInt(max+min)-min;
+	}
+	
+	
+	
+	
+	
 	static int[] bubbleSort(int[] array) 
     { 
 		int[] arr = array;
@@ -159,7 +171,10 @@ public class CustomLibDRAKE {
 	
 	public static void main(String[] args)
 	{
-	
+		Object o = new Double(2.2);
+		
+		
+		
 		
 	}
 	
