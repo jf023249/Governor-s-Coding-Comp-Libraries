@@ -209,10 +209,17 @@ public class CustomLibDRAKE {
         return result;
     }
     	
+  //NOTE! Range is inclusive
     static int rand(int min, int max)
 	{
 		Random r = new Random();
 		return r.nextInt((max - min) + 1) + min;
+	}
+    
+    static double rand(double min, double max)
+	{
+		Random r = new Random();
+		return r.nextDouble()*(max - min) + min;
 	}
 	
 	static int[] bubbleSort(int[] array) 
