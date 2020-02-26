@@ -365,6 +365,20 @@ public class CustomLibDRAKE {
 		return formatter.format(d);
 	}
 	
+	public static int absVal(int value) {
+        return value < 0 ? -value : value;
+    }
+
+	public static long pow(int a, int b) {
+        long result = 1;
+        for (int i = 1; i <= b; i++) {
+            result *= a;
+        }
+        return result;
+    }
+
+	
+	
 	public static void main(String[] args)
 	{
 		
