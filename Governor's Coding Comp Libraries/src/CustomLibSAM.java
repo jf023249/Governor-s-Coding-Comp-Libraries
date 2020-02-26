@@ -446,7 +446,7 @@ public class CustomLibSAM {
 	public static void main(String[] args)
 	{
 		System.out.println(baseConversion(4,10,2));
-		//goose
+		//gooses
 	}
 	
 }
