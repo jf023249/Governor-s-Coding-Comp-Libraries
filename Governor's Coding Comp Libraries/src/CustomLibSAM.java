@@ -330,17 +330,12 @@ public class CustomLibSAM {
 
 	static int gcd(int a, int b) 
 	    { 
-	        // Everything divides 0  
 	        if (a == 0) 
 	          return b; 
 	        if (b == 0) 
 	          return a; 
-	       
-	        // base case 
 	        if (a == b) 
 	            return a; 
-	       
-	        // a is greater 
 	        if (a > b) 
 	            return gcd(a-b, b); 
 	        return gcd(a, b-a); 
@@ -348,37 +343,19 @@ public class CustomLibSAM {
 		
 	static long maxPrimeFactor(long n) 
 		{ 
-			// Initialize the maximum prime 
-			// factor variable with the 
-			// lowest one 
 			long maxPrime = -1; 
-	  
-			// Print the number of 2s 
-			// that divide n 
 			while (n % 2 == 0) { 
 				maxPrime = 2; 
-	  
-				// equivalent to n /= 2 
 				n >>= 1; 
 			} 
-	  
-			// n must be odd at this point, 
-			// thus skip the even numbers 
-			// and iterate only for odd 
-			// integers 
 			for (int i = 3; i <= Math.sqrt(n); i += 2) { 
 				while (n % i == 0) { 
 					maxPrime = i; 
 					n = n / i; 
 				} 
 			} 
-	  
-			// This condition is to handle 
-			// the case when n is a prime 
-			// number greater than 2 
 			if (n > 2) 
 				maxPrime = n; 
-	  
 			return maxPrime; 
 		} 
 	 
@@ -413,18 +390,12 @@ public class CustomLibSAM {
 
 	static boolean isPrime(int n) 
     { 
-        // Corner cases 
         if (n <= 1) return false; 
         if (n <= 3) return true; 
-      
-        // This is checked so that we can skip  
-        // middle five numbers in below loop 
         if (n % 2 == 0 || n % 3 == 0) return false; 
-      
         for (int i = 5; i * i <= n; i = i + 6) 
             if (n % i == 0 || n % (i + 2) == 0) 
             return false; 
-      
         return true; 
     } 
 
@@ -446,7 +417,6 @@ public class CustomLibSAM {
 	public static void main(String[] args)
 	{
 		System.out.println(baseConversion(4,10,2));
-		//gooses
 	}
 	
 }
