@@ -4,12 +4,48 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
 public class CustomLibSAM {
 	
+	static ArrayList<String> separator(String str, String delimiter)
+	{
+		ArrayList<String> result = new ArrayList<String>();
+		Scanner scan2 = new Scanner(str);
+		scan2.useDelimiter(delimiter);
+		while (scan2.hasNext())
+		{
+			result.add(scan2.next());
+		}
+		scan2.close();
+		return result;
+	}
+	
+	static String reverser(String sent)
+	{
+		String result = "";
+		for (int i=sent.length()-1; i>=0; i--)
+		{
+			result += sent.charAt(i);
+		}
+		return result;
+	}
+	
+	static boolean isVowel(char c)
+	{
+		if (c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
+			return true;
+		return false;
+	}
+	
+	static boolean isLetter(char c)
+	{
+		if ((c<='z'&&c>='a')||(c<='Z'&&c>='A'))
+			return true;
+		return false;
+	}
 	
 	static int maxListInt(ArrayList<Integer> list)
 	{
@@ -248,10 +284,10 @@ public class CustomLibSAM {
         return arr;
     } 
 	
-	static boolean hasKey(ArrayList<HashMap<Object,Object>> arr, Object key)
+	static boolean hasKey(ArrayList<Map<Object,Object>> arr, Object key)
 	{
 		boolean flag = false;
-		for(HashMap<Object,Object> h: arr)
+		for(Map<Object,Object> h: arr)
 		{
 			if(h.containsKey(key))
 			{
@@ -384,7 +420,8 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(rand(1.0,1.0001));
+		ArrayList<String> list = separator("maddyLLisLLlikeLL12LLyearsLLoldLL","L");
+		System.out.println(list);
 	}
 	
 }
