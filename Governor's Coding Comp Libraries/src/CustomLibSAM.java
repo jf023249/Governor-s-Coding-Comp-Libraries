@@ -367,7 +367,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		
+		System.out.print("Working");
 	}
 	
 

@@ -381,7 +381,7 @@ public class CustomLibDRAKE {
 	
 	public static void main(String[] args)
 	{
-		
+		System.out.print("working");
 	}
 	
 
