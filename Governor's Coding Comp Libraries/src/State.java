@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class CustomLibSAM {
+public class State {
 	
 	static String baseConversion(Integer number, int sBase, int dBase) 
 	{ 
