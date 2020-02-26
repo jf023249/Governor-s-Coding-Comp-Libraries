@@ -10,6 +10,11 @@ import java.util.Scanner;
 
 public class CustomLibSAM {
 	
+	static String baseConversion(Integer number, int sBase, int dBase) 
+	{ 
+		return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
+	} 
+	
 	static ArrayList<String> separator(String str, String delimiter)
 	{
 		ArrayList<String> result = new ArrayList<String>();
@@ -440,9 +445,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		ArrayList<String> list = separator("12LL15LL200LL11","LL");
-		ArrayList<Double> intList = listStringToDouble(list);
-		System.out.println(intList.get(0)+3);
+		System.out.println(baseConversion(4,10,2));
 	}
 	
 }
