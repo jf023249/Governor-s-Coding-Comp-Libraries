@@ -23,6 +23,26 @@ public class CustomLibSAM {
 		return result;
 	}
 	
+	static ArrayList<Integer> listStringToInt(ArrayList<String> list)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		for (String s : list)
+		{
+			result.add(Integer.parseInt(s));
+		}
+		return result;
+	}
+
+	static ArrayList<Double> listStringToDouble(ArrayList<String> list)
+	{
+		ArrayList<Double> result = new ArrayList<Double>();
+		for (String s : list)
+		{
+			result.add(Double.parseDouble(s));
+		}
+		return result;
+	}
+	
 	static String reverser(String sent)
 	{
 		String result = "";
@@ -420,8 +440,9 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		ArrayList<String> list = separator("maddyLLisLLlikeLL12LLyearsLLoldLL","L");
-		System.out.println(list);
+		ArrayList<String> list = separator("12LL15LL200LL11","LL");
+		ArrayList<Double> intList = listStringToDouble(list);
+		System.out.println(intList.get(0)+3);
 	}
 	
 }
