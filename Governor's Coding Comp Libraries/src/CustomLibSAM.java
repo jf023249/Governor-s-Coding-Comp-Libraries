@@ -306,11 +306,7 @@ public class CustomLibSAM {
 		return r.nextInt((max - min) + 1) + min;
 	}
     
-    static char rand(char min, char max)
-    {
-    	
-    }
-    
+
     static double rand(double min, double max)
 	{
 		Random r = new Random();
