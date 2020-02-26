@@ -128,6 +128,7 @@ public class CustomLibSAM {
 		}
 	}
 	
+	//NOTE! Must create an ArrayList of the correct type and then call this method.
 	static void takeIntegerInput(ArrayList<Integer> inputs)
 	{
 		Scanner scan1 = new Scanner(System.in);
@@ -149,6 +150,7 @@ public class CustomLibSAM {
 		}
 	}
 	
+	//NOTE! Must create an ArrayList of the correct type and then call this method.
 	static void takeWordInput(ArrayList<String> inputs)
 	{
 		Scanner scan1 = new Scanner(System.in);
@@ -209,10 +211,17 @@ public class CustomLibSAM {
         return result;
     }
     	
-	static int rand(int min, int max)
+    //NOTE! Range is inclusive
+    static int rand(int min, int max)
 	{
 		Random r = new Random();
 		return r.nextInt((max - min) + 1) + min;
+	}
+    
+    static double rand(double min, double max)
+	{
+		Random r = new Random();
+		return r.nextDouble()*(max - min) + min;
 	}
 	
 	static int[] bubbleSort(int[] array) 
@@ -367,7 +376,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(rand(2,2));
+		System.out.println(rand(1.0,1.0001));
 	}
 	
 
