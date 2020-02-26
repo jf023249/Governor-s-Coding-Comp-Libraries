@@ -94,11 +94,11 @@ public class CustomLibSAM {
 	static void outputFile(String fileName, ArrayList<String> lines) {
 		try {
 			File f = new File(fileName);
-			System.out.println("it worked");
 			FileWriter fWriter = new FileWriter(f);
-			for (String s : lines) {
-				fWriter.write(s+"\n");
+			for (int i=0; i<lines.size()-1; i++) {
+				fWriter.write(lines.get(i)+System.lineSeparator());
 			}
+			fWriter.write(lines.get(lines.size()-1));
 			fWriter.close();
 		}
 		catch (IOException e) {
@@ -367,7 +367,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		System.out.print("Working");
+		outputFile("doggybagoutput.txt",inputFile("input.txt"));
 	}
 	
 
