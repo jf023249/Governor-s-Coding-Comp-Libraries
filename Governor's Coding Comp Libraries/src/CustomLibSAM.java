@@ -212,7 +212,7 @@ public class CustomLibSAM {
 	static int rand(int min, int max)
 	{
 		Random r = new Random();
-		return r.nextInt(max+min)-min;
+		return r.nextInt((max - min) + 1) + min;
 	}
 	
 	static int[] bubbleSort(int[] array) 
@@ -367,7 +367,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		outputFile("doggybagoutput.txt",inputFile("input.txt"));
+		System.out.println(rand(2,2));
 	}
 	
 
