@@ -75,11 +75,14 @@ public class CustomLibSAM {
 		return result;
 	}
 	
-	static ArrayList<String> inputFile(String fileName) {
+	static ArrayList<String> inputFile(String fileName)
+	{
 		ArrayList<String> lines = new ArrayList<String>();
-		try {
+		try
+		{
 			Scanner fScan = new Scanner(new File(fileName));
-			while (fScan.hasNextLine()) {
+			while (fScan.hasNextLine())
+			{
 				lines.add(fScan.nextLine());
 			}
 			fScan.close();
@@ -91,17 +94,21 @@ public class CustomLibSAM {
 		}
 	}
 	
-	static void outputFile(String fileName, ArrayList<String> lines) {
-		try {
+	static void outputFile(String fileName, ArrayList<String> lines)
+	{
+		try
+		{
 			File f = new File(fileName);
 			FileWriter fWriter = new FileWriter(f);
-			for (int i=0; i<lines.size()-1; i++) {
+			for (int i=0; i<lines.size()-1; i++)
+			{
 				fWriter.write(lines.get(i)+System.lineSeparator());
 			}
 			fWriter.write(lines.get(lines.size()-1));
 			fWriter.close();
 		}
-		catch (IOException e) {
+		catch (IOException e)
+		{
 			System.out.println("IO Exception.");
 		}
 	}
@@ -203,9 +210,11 @@ public class CustomLibSAM {
         } 
     } 
 	    
-    static int gcdArr(ArrayList<Integer> list) {
+    static int gcdArr(ArrayList<Integer> list)
+    {
     	int result = gcd(list.get(0),list.get(1));
-        for(int i = 2; i < list.size(); i++){
+        for(int i = 2; i < list.size(); i++)
+        {
            result = gcd(result, list.get(0));
         }
         return result;
@@ -366,7 +375,6 @@ public class CustomLibSAM {
         System.out.println(); 
     } 
 
-	//NOTE! This method rounds to the nearest cent.
 	static String currencyFormat(double d)
 	{
 		NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -379,10 +387,4 @@ public class CustomLibSAM {
 		System.out.println(rand(1.0,1.0001));
 	}
 	
-
-	
-	
-	
-	
-
 }
