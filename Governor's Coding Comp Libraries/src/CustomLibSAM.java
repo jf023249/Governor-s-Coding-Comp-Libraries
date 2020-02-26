@@ -72,6 +72,24 @@ public class CustomLibSAM {
 		return false;
 	}
 	
+	static boolean isDigit(char c)
+	{
+		if (c<='9'&&c>='0')
+			return true;
+		return false;
+	}
+	
+	static String sanitize(String str)
+	{
+		String result = "";
+		for (int i=0; i<str.length(); i++)
+		{
+			if (isDigit(str.charAt(i)))
+				result += str.charAt(i);
+		}
+		return result;
+	}
+	
 	static int maxListInt(ArrayList<Integer> list)
 	{
 		int max = Integer.MIN_VALUE;
@@ -288,6 +306,11 @@ public class CustomLibSAM {
 		return r.nextInt((max - min) + 1) + min;
 	}
     
+    static char rand(char min, char max)
+    {
+    	
+    }
+    
     static double rand(double min, double max)
 	{
 		Random r = new Random();
@@ -416,7 +439,7 @@ public class CustomLibSAM {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(baseConversion(4,10,2));
+		System.out.println(sanitize("1k  kjjh 2 kf34 5 6 y tyty 789 sdf10"));
 	}
 	
 }
