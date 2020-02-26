@@ -94,11 +94,11 @@ public class CustomLibDRAKE {
 	static void outputFile(String fileName, ArrayList<String> lines) {
 		try {
 			File f = new File(fileName);
-			System.out.println("it worked");
 			FileWriter fWriter = new FileWriter(f);
-			for (String s : lines) {
-				fWriter.write(s+"\n");
+			for (int i=0; i<lines.size()-1; i++) {
+				fWriter.write(lines.get(i)+System.lineSeparator());
 			}
+			fWriter.write(lines.get(lines.size()-1));
 			fWriter.close();
 		}
 		catch (IOException e) {
@@ -209,10 +209,10 @@ public class CustomLibDRAKE {
         return result;
     }
     	
-	static int rand(int min, int max)
+    static int rand(int min, int max)
 	{
 		Random r = new Random();
-		return r.nextInt(max+min)-min;
+		return r.nextInt((max - min) + 1) + min;
 	}
 	
 	static int[] bubbleSort(int[] array) 
