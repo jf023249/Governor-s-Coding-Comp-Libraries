@@ -8,12 +8,15 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class State {
-	
-	static String baseConversion(Integer number, int sBase, int dBase) 
-	{ 
+
+interface Collapse
+{
+	interface StateMethods
+	{
+		static String baseConversion(Integer number, int sBase, int dBase) 
+		{ 
 		return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
-	} 
+		} 
 	
 	static ArrayList<String> separator(String str, String delimiter)
 	{
@@ -432,10 +435,16 @@ public class State {
 		
 		return formatter.format(d);
 	}
+	}
+}
+
+public class State implements Collapse {
+	
+	
 	
 	public static void main(String[] args)
 	{
-		System.out.println(sanitize("1k  kjjh 2 kf34 5 6 y tyty 789 sdf10"));
+		System.out.println(StateMethods.sanitize("1k  kjjh 2 kf34 5 6 y tyty 789 sdf10"));
 	}
 	
 }
