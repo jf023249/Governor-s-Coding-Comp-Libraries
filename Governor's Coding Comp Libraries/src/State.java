@@ -13,7 +13,7 @@ interface Collapse
 {
 	interface StateMethods
 	{
-		static String baseConversion(Integer number, int sBase, int dBase) 
+		static String baseConversion(String number, int sBase, int dBase) 
 		{ 
 			return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
 		} 
@@ -447,7 +447,7 @@ public class State implements Collapse {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(StateMethods.rand('A','z'));
+		System.out.println(StateMethods.baseConversion("11010100110101", 2, 16));
 	}
 	
 }
