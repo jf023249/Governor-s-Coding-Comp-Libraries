@@ -14,12 +14,57 @@ public class State
 	
 	public static void main(String[] args)
 	{
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(4);
-		list.add(6);
-		list.add(7);
-		list.add(1);
-		System.out.println(reverseList(list));
+		
+	}
+	
+	static int takeOneInteger()
+	{
+		Scanner scan = new Scanner(System.in);
+		while (!scan.hasNextInt()) {
+			System.out.println("INVALID: Input an integer and press enter.");
+			scan.nextLine();
+		}
+		int result = scan.nextInt();
+		scan.close();
+		return result;
+	}
+	
+	static double takeOneDouble()
+	{
+		Scanner scan = new Scanner(System.in);
+		while (!scan.hasNextDouble()) {
+			System.out.println("INVALID: Input a double and press enter.");
+			scan.nextLine();
+		}
+		double result = scan.nextDouble();
+		scan.close();
+		return result;
+	}
+
+	static String takeOneWord()
+	{
+		Scanner scan = new Scanner(System.in);
+		String input = "";
+		input = scan.nextLine();
+		while (!removeWhitespace(input).equals(input)) {
+			System.out.println("INVALID: Input only one word and press enter.");
+			input = scan.nextLine();
+		}
+		scan.close();
+		return input;
+	}
+	
+	static char takeOneChar()
+	{
+		Scanner scan = new Scanner(System.in);
+		String input = "";
+		input = scan.nextLine();
+		while (input.length()>1) {
+			System.out.println("INVALID: Input only one character and press enter.");
+			input = scan.nextLine();
+		}
+		scan.close();
+		return input.charAt(0);
 	}
 	
 	static String baseConversion(String num, int from, int to) 
@@ -226,7 +271,7 @@ public class State
 		} 
 	} 
 	
-	static ArrayList<Double> takeDoubleInput(String delimiter)
+	static ArrayList<Double> takeManyDoubles(String delimiter)
 	{
 		ArrayList<Double> result = new ArrayList<Double>();
 		Scanner scan1 = new Scanner(System.in);
@@ -246,12 +291,12 @@ public class State
 		{
 			System.out.println("INVALID INPUT: Enter only doubles separated by \""+delimiter+"\"");
 			result.clear();
-			takeDoubleInput(delimiter);
+			takeManyDoubles(delimiter);
 		}
 		return result;
 	}
 	
-	static ArrayList<Integer> takeIntegerInput(String delimiter)
+	static ArrayList<Integer> takeManyIntegers(String delimiter)
 	{
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		Scanner scan1 = new Scanner(System.in);
@@ -270,12 +315,12 @@ public class State
 		{
 			System.out.println("INVALID INPUT: Enter only integers separated by \""+delimiter+"\"");
 			result.clear();
-			takeIntegerInput(delimiter);
+			takeManyIntegers(delimiter);
 		}
 		return result;
 	}
 	
-	static ArrayList<String> takeWordInput(String delimiter)
+	static ArrayList<String> takeManyWords(String delimiter)
 	{
 		ArrayList<String> result = new ArrayList<String>();
 		Scanner scan1 = new Scanner(System.in);
@@ -553,5 +598,4 @@ public class State
         } 
         return revArrayList; 
     } 
-	
 }
