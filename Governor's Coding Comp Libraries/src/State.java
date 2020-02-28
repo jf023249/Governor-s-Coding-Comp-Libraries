@@ -488,6 +488,24 @@ interface Collapse
 	        }
 	        return result;
 	     }
+		
+		static boolean isPalindrome(String s) {
+	        s = s.toLowerCase().trim();
+	        StringBuilder sb = new StringBuilder();
+	        for (char c : s.toCharArray()) {
+	            if (Character.isLetter(c) || Character.isDigit(c))
+	                sb.append(c);
+	        }
+	        s = sb.toString();
+	        int start = 0;
+	        int end = s.length() - 1;
+	        while (start <= end) {
+	            if (s.charAt(start++) != s.charAt(end--))
+	                return false;
+
+	        }
+	        return true;
+	    }
 	}
 }
 
@@ -495,7 +513,10 @@ public class State implements Collapse {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(StateMethods.vDecrypt("Nszds hvwvk! Zsc oji mcm zcrsc?","goose"));
+		System.out.println(StateMethods.isPalindrome("taco cat"));
+		System.out.println(StateMethods.isPalindrome("R_ace_car"));
+		System.out.println(StateMethods.isPalindrome("Not a palindrome"));
+		
 	}
 	
 }
