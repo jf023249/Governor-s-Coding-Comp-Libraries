@@ -542,11 +542,6 @@ interface Collapse
 
 public class State implements Collapse {
 	
-	static String baseConversion(Integer number, int sBase, int dBase) 
-	{ 
-		return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
-	} 
-	
 	public static void main(String[] args)
 	{
 		ArrayList<Integer> inputs = new ArrayList<Integer>();
