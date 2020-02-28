@@ -12,6 +12,11 @@ import java.util.Scanner;
 public class State
 {
 	
+	public static void main(String[] args)
+	{
+		
+	}
+	
 	static String baseConversion(String number, int sBase, int dBase) 
 	{ 
 		return Integer.toString(Integer.parseInt(number,sBase),dBase); 
@@ -530,12 +535,5 @@ public class State
         }
         return true;
     }
-	
-	public static void main(String[] args)
-	{
-		ArrayList<Integer> inputs = new ArrayList<Integer>();
-		takeIntegerInput(inputs, "j");
-		System.out.println(inputs);
-	}
 	
 }
