@@ -1,3 +1,4 @@
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -15,7 +16,7 @@ interface Collapse
 	{
 		static String baseConversion(String number, int sBase, int dBase) 
 		{ 
-			return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
+			return Integer.toString(Integer.parseInt(number,sBase),dBase); 
 		} 
 		
 		static ArrayList<String> separator(String str, String delimiter)
@@ -68,26 +69,22 @@ interface Collapse
 			return false;
 		}
 		
-		static boolean isLetter(char c)
-		{
-			if ((c<='z'&&c>='a')||(c<='Z'&&c>='A'))
-				return true;
-			return false;
-		}
-		
-		static boolean isDigit(char c)
-		{
-			if (c<='9'&&c>='0')
-				return true;
-			return false;
-		}
-		
 		static String sanitize(String str)
 		{
 			String result = "";
 			for (int i=0; i<str.length(); i++)
 			{
-				if (isDigit(str.charAt(i)))
+				if (Character.isDigit(str.charAt(i)))
+					result += str.charAt(i);
+			}
+			return result;
+		}
+		
+		static String removeWhitespace(String str) {
+			String result = "";
+			for (int i=0; i<str.length(); i++)
+			{
+				if (str.charAt(i)!=' ')
 					result += str.charAt(i);
 			}
 			return result;
@@ -195,13 +192,40 @@ interface Collapse
 			}
 		}
 		
+		static void appendFile(String fileName, String str)
+		{ 
+			try
+			{
+				BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true)); 
+				out.write(str); 
+				out.close(); 
+			} 
+			catch (IOException e) { 
+				System.out.println("IO Exception"); 
+			} 
+		}
+		
+		static void appendLineFile(String fileName)
+		{ 
+			try
+			{
+				BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true)); 
+				out.write(System.lineSeparator()); 
+				out.close(); 
+			} 
+			catch (IOException e) { 
+				System.out.println("IO Exception"); 
+			} 
+		} 
+		
 		//NOTE! Must create an ArrayList of the correct type and then call this method.
-		static void takeDoubleInput(ArrayList<Double> inputs)
+		static void takeDoubleInput(ArrayList<Double> inputs, String delimiter)
 		{
 			Scanner scan1 = new Scanner(System.in);
 			try
 			{
 				Scanner scan2 = new Scanner(scan1.nextLine());
+				scan2.useDelimiter(delimiter);
 				while (scan2.hasNext())
 				{
 					inputs.add(scan2.nextDouble());
@@ -213,17 +237,18 @@ interface Collapse
 			{
 				System.out.println("INVALID INPUT: Enter only doubles separated by spaces.");
 				inputs.clear();
-				takeDoubleInput(inputs);
+				takeDoubleInput(inputs, delimiter);
 			}
 		}
 		
 		//NOTE! Must create an ArrayList of the correct type and then call this method.
-		static void takeIntegerInput(ArrayList<Integer> inputs)
+		static void takeIntegerInput(ArrayList<Integer> inputs, String delimiter)
 		{
 			Scanner scan1 = new Scanner(System.in);
 			try
 			{
 				Scanner scan2 = new Scanner(scan1.nextLine());
+				scan2.useDelimiter(delimiter);
 				while (scan2.hasNext())
 				{
 					inputs.add(scan2.nextInt());
@@ -235,15 +260,16 @@ interface Collapse
 			{
 				System.out.println("INVALID INPUT: Enter only integers separated by spaces.");
 				inputs.clear();
-				takeIntegerInput(inputs);
+				takeIntegerInput(inputs, delimiter);
 			}
 		}
 		
 		//NOTE! Must create an ArrayList of the correct type and then call this method.
-		static void takeWordInput(ArrayList<String> inputs)
+		static void takeWordInput(ArrayList<String> inputs, String delimiter)
 		{
 			Scanner scan1 = new Scanner(System.in);
 			Scanner scan2 = new Scanner(scan1.nextLine());
+			scan2.useDelimiter(delimiter);
 			scan1.close();
 			while (scan2.hasNext())
 			{
@@ -440,6 +466,73 @@ interface Collapse
 			
 			return formatter.format(d);
 		}
+	
+		static String vEncrypt(final String message, final String key)
+	    {
+
+	        String result = "";
+
+	        for (int i = 0, j = 0; i < message.length(); i++) {
+	            char c = message.charAt(i);
+	            if (Character.isLetter(c)){
+	                if(Character.isUpperCase(c)) {
+	                    result += (char) ((c + key.toUpperCase().charAt(j) - 2 * 'A') % 26 + 'A');
+
+	                } else {
+	                    result += (char) ((c + key.toLowerCase().charAt(j) - 2 * 'a') % 26 + 'a');
+
+	                }
+	            } else {
+	                result+=c;
+	            }
+	            j = ++j % key.length();
+	        }
+	        return result;
+	    }
+
+		static String vDecrypt(final String message, final String key)
+	    {
+	        String result ="";
+
+	        for(int i = 0, j = 0; i < message.length(); i++){
+
+	            char c = message.charAt(i);
+	            if (Character.isLetter(c)){
+	                if(Character.isUpperCase(c)) {
+	                    result += ((char)('Z'-(25-(c-key.toUpperCase().charAt(j)))%26));
+
+	                } else {
+	                    result += ((char)('z'-(25-(c-key.toLowerCase().charAt(j)))%26));
+
+	                }
+	            } else {
+	                result+=c;
+	            }
+
+	            j = ++j % key.length();
+
+	        }
+	        return result;
+	     }
+		
+		static boolean isPalindrome(String s) {
+	        s = s.toLowerCase().trim();
+	        StringBuilder sb = new StringBuilder();
+	        for (char c : s.toCharArray()) {
+	            if (Character.isLetter(c) || Character.isDigit(c))
+	                sb.append(c);
+	        }
+	        s = sb.toString();
+	        int start = 0;
+	        int end = s.length() - 1;
+	        while (start <= end) {
+	            if (s.charAt(start++) != s.charAt(end--))
+	                return false;
+
+	        }
+	        return true;
+	    }
+		
 	}
 }
 
@@ -447,7 +540,9 @@ public class State implements Collapse {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(StateMethods.baseConversion("11010100110101", 2, 16));
+		ArrayList<Integer> inputs = new ArrayList<Integer>();
+		StateMethods.takeIntegerInput(inputs, "j");
+		System.out.println(inputs);
 	}
 	
 }
