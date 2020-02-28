@@ -9,14 +9,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 
+
+
 interface Collapse
 {
 	interface StateMethods
 	{
-		static String baseConversion(Integer number, int sBase, int dBase) 
-		{ 
-			return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
-		} 
+		
 		
 		static ArrayList<String> separator(String str, String delimiter)
 		{
@@ -510,6 +509,11 @@ interface Collapse
 }
 
 public class State implements Collapse {
+	
+	static String baseConversion(Integer number, int sBase, int dBase) 
+	{ 
+		return Integer.toString(Integer.parseInt(number.toString(), sBase),dBase); 
+	} 
 	
 	public static void main(String[] args)
 	{
