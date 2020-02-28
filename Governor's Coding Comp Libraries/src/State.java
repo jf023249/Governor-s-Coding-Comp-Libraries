@@ -14,12 +14,17 @@ public class State
 	
 	public static void main(String[] args)
 	{
-		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(4);
+		list.add(6);
+		list.add(7);
+		list.add(1);
+		System.out.println(reverseList(list));
 	}
 	
-	static String baseConversion(String number, int sBase, int dBase) 
+	static String baseConversion(String num, int from, int to) 
 	{ 
-		return Integer.toString(Integer.parseInt(number,sBase),dBase); 
+		return Integer.toString(Integer.parseInt(num,from),to); 
 	} 
 
 	static ArrayList<String> separator(String str, String delimiter)
@@ -221,9 +226,9 @@ public class State
 		} 
 	} 
 	
-	//NOTE! Must create an ArrayList of the correct type and then call this method.
-	static void takeDoubleInput(ArrayList<Double> inputs, String delimiter)
+	static ArrayList<Double> takeDoubleInput(String delimiter)
 	{
+		ArrayList<Double> result = new ArrayList<Double>();
 		Scanner scan1 = new Scanner(System.in);
 		try
 		{
@@ -231,22 +236,24 @@ public class State
 			scan2.useDelimiter(delimiter);
 			while (scan2.hasNext())
 			{
-				inputs.add(scan2.nextDouble());
+				result.add(scan2.nextDouble());
 			}
 			scan1.close();
 			scan2.close();
+			return result;
 		}
 		catch (Exception e)
 		{
-			System.out.println("INVALID INPUT: Enter only doubles separated by spaces.");
-			inputs.clear();
-			takeDoubleInput(inputs, delimiter);
+			System.out.println("INVALID INPUT: Enter only doubles separated by \""+delimiter+"\"");
+			result.clear();
+			takeDoubleInput(delimiter);
 		}
+		return result;
 	}
 	
-	//NOTE! Must create an ArrayList of the correct type and then call this method.
-	static void takeIntegerInput(ArrayList<Integer> inputs, String delimiter)
+	static ArrayList<Integer> takeIntegerInput(String delimiter)
 	{
+		ArrayList<Integer> result = new ArrayList<Integer>();
 		Scanner scan1 = new Scanner(System.in);
 		try
 		{
@@ -254,31 +261,33 @@ public class State
 			scan2.useDelimiter(delimiter);
 			while (scan2.hasNext())
 			{
-				inputs.add(scan2.nextInt());
+				result.add(scan2.nextInt());
 			}
 			scan1.close();
 			scan2.close();
 		}
 		catch (Exception e)
 		{
-			System.out.println("INVALID INPUT: Enter only integers separated by spaces.");
-			inputs.clear();
-			takeIntegerInput(inputs, delimiter);
+			System.out.println("INVALID INPUT: Enter only integers separated by \""+delimiter+"\"");
+			result.clear();
+			takeIntegerInput(delimiter);
 		}
+		return result;
 	}
 	
-	//NOTE! Must create an ArrayList of the correct type and then call this method.
-	static void takeWordInput(ArrayList<String> inputs, String delimiter)
+	static ArrayList<String> takeWordInput(String delimiter)
 	{
+		ArrayList<String> result = new ArrayList<String>();
 		Scanner scan1 = new Scanner(System.in);
 		Scanner scan2 = new Scanner(scan1.nextLine());
 		scan2.useDelimiter(delimiter);
 		scan1.close();
 		while (scan2.hasNext())
 		{
-			inputs.add(scan2.next());
+			result.add(scan2.next());
 		}
 		scan2.close();
+		return result;
 	}
 	
 	static int lcmArr(ArrayList<Integer> list) 
@@ -331,7 +340,6 @@ public class State
         return result;
     }
     	
-    //NOTE! Range is inclusive
     static int rand(int min, int max)
 	{
 		Random r = new Random();
@@ -535,5 +543,15 @@ public class State
         }
         return true;
     }
+	
+	static ArrayList<Integer> reverseList(ArrayList<Integer> alist) 
+    { 
+        ArrayList<Integer> revArrayList = new ArrayList<Integer>(); 
+        for (int i = alist.size() - 1; i >= 0; i--)
+        { 
+            revArrayList.add(alist.get(i)); 
+        } 
+        return revArrayList; 
+    } 
 	
 }
